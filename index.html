@@ -178,7 +178,33 @@
     border-color: var(--verde);
     background: #fff;
   }
-  .form-group input.error { border-color: #e53935; }
+  .form-group input.cep-ok { border-color: var(--verde); background: #f0fff4; }
+  .form-group input.cep-erro { border-color: #e53935; }
+  .cep-feedback {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 5px;
+    min-height: 16px;
+  }
+  .cep-feedback.ok { color: var(--verde); }
+  .cep-feedback.erro { color: #e53935; }
+  .cep-loading { color: #888; }
+  .cep-row { position: relative; }
+  .cep-spinner {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 3px solid #eee;
+    border-top-color: var(--verde);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+  .cep-spinner.show { display: block; }
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
 
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -701,6 +727,15 @@
   </div>
 
   <div class="form-group">
+    <label>CEP</label>
+    <div class="cep-row">
+      <input type="tel" id="cep" placeholder="00000-000" maxlength="9" oninput="mascaraCep(this)" onblur="buscarCep()">
+      <div class="cep-spinner" id="cepSpinner"></div>
+    </div>
+    <div class="cep-feedback" id="cepFeedback"></div>
+  </div>
+
+  <div class="form-group">
     <label>Município</label>
     <select id="municipio" onchange="atualizarBairros()">
       <option value="">Selecione...</option>
@@ -813,6 +848,7 @@
   // ============================================
   const PAGSEGURO_TOKEN = "6fa3df78-ca16-44cc-bb1c-f32ef431e5bb4bbb04b540cc8f2d795f70794d471d3726b8-90eb-4c3c-9dc9-cebb2a617e2e";
   const PAGSEGURO_EMAIL = "haroldorebelojr@gmail.com";
+  const SHEETS_URL      = "https://script.google.com/macros/s/AKfycbxUDXt5pxIQ_MEHMffQiVx9O3C0lf5Q5bh3WV3qPWP4OOtrGrGOWcWlB-zv0WbWQd6o/exec";
 
   const ESTOQUE_TOTAL = 100;    // Altere aqui para liberar mais unidades
   const ESTOQUE_KEY   = "olheigosteibr_estoque_vendido"; // chave no localStorage
@@ -929,6 +965,99 @@
     ]
   };
 
+  // ── CEP ──────────────────────────────────────
+  function mascaraCep(el) {
+    let v = el.value.replace(/\D/g, '');
+    if (v.length > 5) v = v.substring(0,5) + '-' + v.substring(5,8);
+    el.value = v;
+    if (v.replace(/\D/g,'').length === 8) buscarCep();
+  }
+
+  async function buscarCep() {
+    const cepEl    = document.getElementById('cep');
+    const feedback = document.getElementById('cepFeedback');
+    const spinner  = document.getElementById('cepSpinner');
+    const cep      = cepEl.value.replace(/\D/g,'');
+
+    if (cep.length !== 8) return;
+
+    spinner.classList.add('show');
+    feedback.textContent = 'Buscando endereço...';
+    feedback.className   = 'cep-feedback cep-loading';
+    cepEl.classList.remove('cep-ok','cep-erro');
+
+    try {
+      const res  = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = await res.json();
+
+      if (data.erro) {
+        cepEl.classList.add('cep-erro');
+        feedback.textContent = '❌ CEP não encontrado. Preencha o endereço manualmente.';
+        feedback.className   = 'cep-feedback erro';
+        spinner.classList.remove('show');
+        return;
+      }
+
+      // Verifica se é Belém ou Ananindeua
+      const cidadeLower = (data.localidade || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      const municipioVal = cidadeLower.includes('ananindeua') ? 'ananindeua'
+                         : cidadeLower.includes('belem') || cidadeLower.includes('belém') ? 'belem'
+                         : null;
+
+      if (!municipioVal) {
+        cepEl.classList.add('cep-erro');
+        feedback.textContent = '⚠️ Este CEP está fora da nossa área de entrega (Belém e Ananindeua).';
+        feedback.className   = 'cep-feedback erro';
+        spinner.classList.remove('show');
+        return;
+      }
+
+      // Preenche município
+      const munSelect = document.getElementById('municipio');
+      munSelect.value = municipioVal;
+      atualizarBairros();
+
+      // Tenta selecionar o bairro automaticamente
+      if (data.bairro) {
+        const bairroSelect  = document.getElementById('bairro');
+        const bairroNorm    = data.bairro.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        let encontrou = false;
+        Array.from(bairroSelect.options).forEach(opt => {
+          const optNorm = opt.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+          if (optNorm === bairroNorm || bairroNorm.includes(optNorm) || optNorm.includes(bairroNorm)) {
+            bairroSelect.value = opt.value;
+            encontrou = true;
+          }
+        });
+        if (!encontrou && data.bairro) {
+          // Adiciona o bairro do CEP caso não esteja na lista
+          const opt = document.createElement('option');
+          opt.value = data.bairro; opt.textContent = data.bairro; opt.selected = true;
+          bairroSelect.appendChild(opt);
+        }
+      }
+
+      // Preenche rua
+      if (data.logradouro) {
+        document.getElementById('rua').value = data.logradouro;
+      }
+
+      cepEl.classList.add('cep-ok');
+      feedback.textContent = '✅ Endereço encontrado! Confira os dados abaixo.';
+      feedback.className   = 'cep-feedback ok';
+
+      // Foca no número
+      setTimeout(() => document.getElementById('numero').focus(), 200);
+
+    } catch(e) {
+      feedback.textContent = '⚠️ Erro ao buscar CEP. Preencha manualmente.';
+      feedback.className   = 'cep-feedback erro';
+    }
+
+    spinner.classList.remove('show');
+  }
+  // ─────────────────────────────────────────────
+
   function atualizarBairros() {
     const municipio = document.getElementById('municipio').value;
     const bairroSel = document.getElementById('bairro');
@@ -992,7 +1121,7 @@
   });
 
   function validarCampos() {
-    const campos = ['nome','whatsapp','municipio','bairro','rua','numero'];
+    const campos = ['nome','whatsapp','cep','municipio','bairro','rua','numero'];
     let ok = true;
     campos.forEach(id => {
       const el = document.getElementById(id);
@@ -1079,6 +1208,37 @@
       const code = match[1];
       registrarVenda(quantidade);
       atualizarEstoque();
+
+      // Envia dados para o Google Sheets
+      const cupomUsado = document.getElementById('cupomInput').value.trim().toUpperCase();
+      const cep        = document.getElementById('cep').value.trim();
+      const compl      = document.getElementById('complemento').value.trim();
+      const pedido = {
+        data:        new Date().toLocaleString('pt-BR', {timeZone:'America/Belem'}),
+        nome,
+        whatsapp,
+        cep,
+        municipio,
+        bairro,
+        rua:         `${rua}, ${numero}${compl ? ', '+compl : ''}`,
+        quantidade,
+        cupom:       cupomUsado || '—',
+        frete:       frete > 0 ? 'R$ 9,00' : 'Grátis',
+        total:       'R$ ' + total.toFixed(2).replace('.',','),
+        status:      'Aguardando entrega',
+        codigo_ps:   code
+      };
+
+      // Dispara sem aguardar (não bloqueia o redirect)
+      if (SHEETS_URL !== 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+        fetch(SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(pedido)
+        }).catch(() => {}); // silencia erros de rede
+      }
+
       document.getElementById('modalCarregando').classList.remove('show');
       document.body.style.overflow = '';
 
