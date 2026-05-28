@@ -1153,7 +1153,7 @@
     document.body.style.overflow = 'hidden';
 
     try {
-      // Chama o Apps Script que faz a chamada ao PagSeguro (sem bloqueio CORS)
+      // JSONP via script tag — único método que funciona com Apps Script sem CORS
       const payload = {
         acao:        'checkout',
         referencia,
@@ -1170,24 +1170,34 @@
         frete_valor: fmtPS(frete)
       };
 
-      const response  = await fetch(SHEETS_URL, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload)
+      const psCode = await new Promise((resolve, reject) => {
+        const cbName  = 'psCb_' + Date.now();
+        const timer   = setTimeout(() => {
+          delete window[cbName];
+          reject(new Error('Timeout — verifique sua conexão'));
+        }, 25000);
+
+        window[cbName] = function(data) {
+          clearTimeout(timer);
+          delete window[cbName];
+          if (data && data.sucesso && data.code) resolve(data.code);
+          else reject(new Error(data ? (data.erro || 'Erro no servidor') : 'Sem resposta'));
+        };
+
+        const script = document.createElement('script');
+        script.src   = SHEETS_URL
+          + '?callback=' + cbName
+          + '&dados='    + encodeURIComponent(JSON.stringify(payload));
+        script.onerror = () => { clearTimeout(timer); delete window[cbName]; reject(new Error('Erro de rede')); };
+        document.head.appendChild(script);
+        setTimeout(() => { try { script.remove(); } catch(e){} }, 30000);
       });
-
-      const resultado = await response.json();
-
-      if (!resultado.sucesso || !resultado.code) {
-        throw new Error(resultado.erro || 'Erro ao gerar pedido.');
-      }
 
       registrarVenda(quantidade);
       atualizarEstoque();
       document.getElementById('modalCarregando').classList.remove('show');
       document.body.style.overflow = '';
-
-      window.location.href = `https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${resultado.code}`;
+      window.location.href = `https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${psCode}`;
 
     } catch (err) {
       document.getElementById('modalCarregando').classList.remove('show');
