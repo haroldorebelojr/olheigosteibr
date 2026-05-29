@@ -14,15 +14,15 @@
     --cinza-claro: #f5f5f5;
     --sombra: rgba(0,0,0,0.15);
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     font-family: 'Nunito', sans-serif;
     background: #f0f0f0;
     min-height: 100vh;
   }
-
+ 
   /* HERO */
   .hero {
     background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 60%);
@@ -67,7 +67,7 @@
     margin-top: 8px;
     position: relative;
   }
-
+ 
   /* PRODUTO CARD */
   .produto-card {
     background: var(--branco);
@@ -115,7 +115,7 @@
     font-weight: 700;
     color: var(--azul);
   }
-
+ 
   .preco-wrap {
     display: flex;
     align-items: center;
@@ -128,7 +128,7 @@
   .preco-label { color: rgba(255,255,255,0.8); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
   .preco-valor { font-family: 'Bebas Neue', sans-serif; color: var(--amarelo); font-size: 36px; letter-spacing: 1px; }
   .preco-frete { color: rgba(255,255,255,0.75); font-size: 11px; margin-top: 2px; }
-
+ 
   /* FORMULÁRIO */
   .form-section {
     background: var(--branco);
@@ -147,7 +147,7 @@
     gap: 8px;
   }
   .form-titulo span { font-size: 20px; }
-
+ 
   .form-group { margin-bottom: 14px; }
   .form-group label {
     display: block;
@@ -205,9 +205,9 @@
   }
   .cep-spinner.show { display: block; }
   @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
-
+ 
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
+ 
   /* RESUMO */
   .resumo {
     background: var(--cinza-claro);
@@ -239,7 +239,7 @@
     color: var(--azul);
   }
   .resumo-linha.total span:last-child { color: var(--verde); }
-
+ 
   /* BTN PAGAR */
   .btn-pagar {
     width: 100%;
@@ -269,7 +269,7 @@
     inset: 0;
     background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
   }
-
+ 
   .seguro-note {
     text-align: center;
     font-size: 11px;
@@ -281,7 +281,7 @@
     justify-content: center;
     gap: 4px;
   }
-
+ 
   /* QUANTIDADE */
   .qtd-wrap {
     display: flex;
@@ -352,7 +352,7 @@
     display: none;
   }
   .qtd-maximo.show { display: block; }
-
+ 
   /* CUPOM */
   .cupom-wrap {
     margin-top: 16px;
@@ -411,10 +411,10 @@
   }
   .cupom-feedback.ok { color: var(--verde); }
   .cupom-feedback.erro { color: #e53935; }
-
+ 
   .resumo-linha.desconto span:last-child { color: var(--verde); }
   .resumo-linha.desconto { display: none; }
-
+ 
   /* MODAL PIX */
   .modal-overlay {
     display: none;
@@ -496,7 +496,7 @@
     width: 100%;
   }
   .btn-copiar:active { transform: scale(0.97); }
-
+ 
   .pix-instrucoes {
     background: #fff8e1;
     border-radius: 12px;
@@ -510,7 +510,7 @@
     line-height: 1.6;
   }
   .pix-instrucoes strong { color: var(--azul); }
-
+ 
   .pix-total {
     text-align: center;
     font-family: 'Bebas Neue', sans-serif;
@@ -526,7 +526,7 @@
     font-weight: 700;
     margin-top: -4px;
   }
-
+ 
   .btn-fechar {
     width: 100%;
     background: transparent;
@@ -540,7 +540,7 @@
     cursor: pointer;
     margin-top: 8px;
   }
-
+ 
   /* FOOTER */
   .footer {
     text-align: center;
@@ -550,7 +550,7 @@
     font-weight: 600;
     line-height: 1.8;
   }
-
+ 
   .toast {
     position: fixed;
     bottom: 24px;
@@ -567,7 +567,7 @@
     white-space: nowrap;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
-
+ 
   /* ESTOQUE */
   .estoque-wrap {
     background: var(--branco);
@@ -613,7 +613,7 @@
   }
   .estoque-texto span { color: var(--verde); }
   .estoque-texto.critico span { color: #e53935; }
-
+ 
   /* ESGOTADO */
   .esgotado-wrap {
     display: none;
@@ -640,14 +640,14 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-badge">✨ Olhei & Gostei Personalizados Criativos</div>
   <h1>RUMO AO<br><span>HEXA!</span></h1>
   <p class="hero-sub">Pins para Sandálias Crocs • Edição Copa do Mundo</p>
 </div>
-
+ 
 <!-- ESTOQUE -->
 <div class="estoque-wrap" id="estoqueWrap">
   <div class="estoque-icone">📦</div>
@@ -661,7 +661,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- ESGOTADO -->
 <div class="esgotado-wrap" id="esgotadoWrap">
   <div style="font-size:48px;margin-bottom:8px;">😢</div>
@@ -673,7 +673,7 @@
     <strong>📸 @olheigosteibr</strong>
   </p>
 </div>
-
+ 
 <!-- PRODUTO -->
 <div class="produto-card">
   <div class="produto-img-wrap">
@@ -695,12 +695,12 @@
     </div>
     <div class="preco-valor">R$ 29,90</div>
   </div>
-
+ 
   <!-- QUANTIDADE -->
   <div class="qtd-wrap">
     <div class="qtd-info">
       <div class="qtd-label">Quantidade de Kits</div>
-      <div class="qtd-preco-unit">R$ 29,90 cada • máx. 5 kits</div>
+      <div class="qtd-preco-unit">R$ 29,90 cada • máx. 4 kits</div>
     </div>
     <div>
       <div class="qtd-controles">
@@ -708,24 +708,24 @@
         <div class="qtd-num" id="qtdNum">1</div>
         <button class="qtd-btn" id="btnMais" onclick="alterarQtd(1)">+</button>
       </div>
-      <div class="qtd-maximo" id="qtdMaximo">⚠️ Máximo de 5 kits por pedido</div>
+      <div class="qtd-maximo" id="qtdMaximo">⚠️ Máximo de 4 kits por pedido</div>
     </div>
   </div>
-
+ 
 <!-- FORMULÁRIO -->
 <div class="form-section">
   <div class="form-titulo"><span>📦</span> Dados para Entrega</div>
-
+ 
   <div class="form-group">
     <label>Nome completo</label>
     <input type="text" id="nome" placeholder="Seu nome completo">
   </div>
-
+ 
   <div class="form-group">
     <label>WhatsApp (para confirmar pedido)</label>
     <input type="tel" id="whatsapp" placeholder="(91) 99999-9999" maxlength="15">
   </div>
-
+ 
   <div class="form-group">
     <label>CEP</label>
     <div class="cep-row">
@@ -734,7 +734,7 @@
     </div>
     <div class="cep-feedback" id="cepFeedback"></div>
   </div>
-
+ 
   <div class="form-group">
     <label>Município</label>
     <select id="municipio" onchange="atualizarBairros()">
@@ -743,14 +743,14 @@
       <option value="ananindeua">Ananindeua</option>
     </select>
   </div>
-
+ 
   <div class="form-group">
     <label>Bairro</label>
     <select id="bairro">
       <option value="">Selecione o município primeiro</option>
     </select>
   </div>
-
+ 
   <div class="form-row">
     <div class="form-group">
       <label>Rua / Avenida</label>
@@ -761,12 +761,12 @@
       <input type="text" id="numero" placeholder="Nº">
     </div>
   </div>
-
+ 
   <div class="form-group">
     <label>Complemento (opcional)</label>
     <input type="text" id="complemento" placeholder="Apto, bloco, referência...">
   </div>
-
+ 
   <!-- CUPOM -->
   <div class="cupom-wrap">
     <span class="cupom-label">🎟️ Cupom de desconto</span>
@@ -776,7 +776,7 @@
     </div>
     <div class="cupom-feedback" id="cupomFeedback"></div>
   </div>
-
+ 
   <!-- AVISO RETIRADA -->
   <div style="background:#fff8e1;border:2px solid var(--amarelo);border-radius:12px;padding:14px 16px;margin-top:4px;display:flex;align-items:flex-start;gap:10px;">
     <span style="font-size:20px;margin-top:2px;">🤝</span>
@@ -785,7 +785,7 @@
       <span style="color:var(--verde)">Use o cupom que te passamos e ganhe frete grátis! 🎉</span>
     </p>
   </div>
-
+ 
   <!-- RESUMO -->
   <div class="resumo">
     <div class="resumo-titulo">Resumo do Pedido</div>
@@ -794,13 +794,13 @@
     <div class="resumo-linha desconto" id="linhaDesconto"><span>🎉 Cupom <span id="cupomAplicado"></span></span><span id="descontoValor">− R$ 9,00</span></div>
     <div class="resumo-linha total"><span>Total</span><span id="totalValor">R$ 38,90</span></div>
   </div>
-
+ 
   <button class="btn-pagar" id="btnPagar" onclick="finalizarPedido()">
     ⚡ PAGAR AGORA — R$ 38,90
   </button>
   <div class="seguro-note">🔒 Pagamento seguro via PagSeguro • Pix, cartão ou boleto</div>
 </div>
-
+ 
 <!-- FOOTER -->
 <div class="footer">
   <strong>Olhei & Gostei Personalizados Criativos</strong><br>
@@ -811,7 +811,7 @@
   </a><br>
   Dúvidas? Nos chama no WhatsApp ou Instagram!
 </div>
-
+ 
 <!-- MODAL CARREGANDO -->
 <div class="modal-overlay" id="modalCarregando">
   <div class="modal" style="text-align:center;padding:40px 24px;">
@@ -825,7 +825,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- MODAL ERRO -->
 <div class="modal-overlay" id="modalErro">
   <div class="modal" style="text-align:center;padding:32px 24px;">
@@ -835,7 +835,7 @@
     <button onclick="fecharErro()" style="width:100%;background:var(--azul);color:var(--amarelo);border:none;border-radius:12px;padding:14px;font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;cursor:pointer;">Tentar novamente</button>
   </div>
 </div>
-
+ 
 <!-- MODAL CONFIRMAÇÃO -->
 <div class="modal-overlay" id="modalConfirm">
   <div class="modal" style="padding:28px 24px 32px;">
@@ -844,7 +844,7 @@
       <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--azul);">Confirme seu pedido</div>
       <p style="font-size:13px;color:#888;font-weight:600;margin-top:4px;">Você será redirecionado ao PagBank para pagar</p>
     </div>
-
+ 
     <div style="background:var(--cinza-claro);border-radius:14px;padding:16px;margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;color:#444;margin-bottom:8px;">
         <span>Quantidade de kits</span>
@@ -855,14 +855,14 @@
         <span style="color:var(--verde)" id="confirmTotal">R$ 38,90</span>
       </div>
     </div>
-
+ 
     <div style="background:#fff8e1;border-radius:12px;padding:12px 14px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start;">
       <span style="font-size:18px;">⚠️</span>
       <p style="font-size:12px;font-weight:700;color:#555;line-height:1.5;">
         No PagBank, <strong style="color:var(--azul)">confirme que o valor está correto</strong> antes de pagar. O link já está configurado com o valor exato do seu pedido.
       </p>
     </div>
-
+ 
     <a id="confirmLink" href="#" style="display:block;width:100%;background:linear-gradient(135deg,var(--verde),#007a2f);color:var(--branco);border:none;border-radius:16px;padding:18px;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;text-align:center;text-decoration:none;box-shadow:0 6px 20px rgba(0,156,59,0.4);">
       ✅ IR PARA O PAGAMENTO
     </a>
@@ -871,17 +871,17 @@
     </button>
   </div>
 </div>
-
+ 
 <!-- TOAST -->
 <div class="toast" id="toast">✅ Redirecionando...</div>
-
+ 
 <style>
   @keyframes pulse {
     0%,100% { opacity:0.3; transform:scale(0.8); }
     50% { opacity:1; transform:scale(1.2); }
   }
 </style>
-
+ 
 <script>
   // ============================================
   // CONFIGURAÇÃO — EDITE AQUI
@@ -889,13 +889,13 @@
   const SHEETS_URL    = "https://script.google.com/macros/s/AKfycbxUDXt5pxIQ_MEHMffQiVx9O3C0lf5Q5bh3WV3qPWP4OOtrGrGOWcWlB-zv0WbWQd6o/exec";
   const ESTOQUE_TOTAL = 100;
   const ESTOQUE_KEY   = "olheigosteibr_estoque_vendido";
-
+ 
   const CUPONS_VALIDOS = {
     "FRETEGRATIS": { desconto: 9.00, descricao: "Frete Grátis" },
     "HEXA2026":    { desconto: 9.00, descricao: "Frete Grátis" },
     "BELEM":       { desconto: 9.00, descricao: "Frete Grátis" },
   };
-
+ 
   // Links com frete (frete R$9 já incluído no valor do link)
   const LINKS_COM_FRETE = {
     1: "https://pag.ae/81QM6vD9s",  // R$ 38,90
@@ -903,7 +903,7 @@
     3: "https://pag.ae/81QMa3_uv",  // R$ 98,70
     4: "https://pag.ae/81QMbsCEv"   // R$ 128,60
   };
-
+ 
   // Links sem frete (cupom — adicione os links quando criar no PagBank)
   const LINKS_SEM_FRETE = {
     1: "https://pag.ae/81QMmHa-r",  // R$ 29,90
@@ -911,15 +911,15 @@
     3: "https://pag.ae/81QMo1rpr",  // R$ 89,70
     4: "https://pag.ae/81QMoJcur"   // R$ 119,60
   };
-
+ 
   const PRECO_KIT   = 29.90;
   const PRECO_FRETE = 9.00;
   const QTD_MAX     = 4;
   // ============================================
-
+ 
   let quantidade  = 1;
   let freteGratis = false;
-
+ 
   // ── ESTOQUE ──────────────────────────────────
   function getVendidos() {
     return parseInt(localStorage.getItem(ESTOQUE_KEY) || '0');
@@ -936,7 +936,7 @@
     const pct       = (restante / ESTOQUE_TOTAL) * 100;
     const critico   = restante <= 20;
     const esgotado  = restante === 0;
-
+ 
     const barra   = document.getElementById('estoqueBarra');
     const texto   = document.getElementById('estoqueTexto');
     const numEl   = document.getElementById('estoqueRestante');
@@ -944,12 +944,12 @@
     const esgWrap = document.getElementById('esgotadoWrap');
     const prodCard = document.querySelector('.produto-card');
     const formSec  = document.querySelector('.form-section');
-
+ 
     barra.style.width = pct + '%';
     barra.classList.toggle('critico', critico);
     texto.classList.toggle('critico', critico);
     numEl.textContent = restante;
-
+ 
     if (esgotado) {
       wrap.style.display      = 'none';
       esgWrap.classList.add('show');
@@ -966,18 +966,18 @@
     }
   }
   // ─────────────────────────────────────────────
-
+ 
   function fmt(v) { return 'R$ ' + v.toFixed(2).replace('.', ','); }
   function fmtPS(v) { return v.toFixed(2); } // PagSeguro usa ponto decimal
-
+ 
   function recalcular() {
     const subtotal = PRECO_KIT * quantidade;
     const frete    = freteGratis ? 0 : PRECO_FRETE;
     const total    = subtotal + frete;
-
+ 
     document.getElementById('resumoQtdLabel').textContent = quantidade + '× Kit 5 Pins Brasil';
     document.getElementById('resumoProduto').textContent  = fmt(subtotal);
-
+ 
     if (freteGratis) {
       document.getElementById('linhaFrete').innerHTML =
         '<span>Frete</span><span style="text-decoration:line-through;color:#aaa">R$ 9,00</span>';
@@ -985,23 +985,23 @@
       document.getElementById('linhaFrete').innerHTML =
         '<span>Frete</span><span>R$ 9,00</span>';
     }
-
+ 
     document.getElementById('totalValor').textContent = fmt(total);
     document.getElementById('btnPagar').textContent   = '⚡ PAGAR AGORA — ' + fmt(total);
-
+ 
     document.getElementById('btnMenos').disabled = quantidade <= 1;
     document.getElementById('btnMais').disabled  = quantidade >= Math.min(QTD_MAX, getRestante());
     document.getElementById('qtdNum').textContent = quantidade;
     document.getElementById('qtdMaximo').classList.toggle('show', quantidade >= QTD_MAX);
   }
-
+ 
   function alterarQtd(delta) {
     const nova = quantidade + delta;
     if (nova < 1 || nova > QTD_MAX) return;
     quantidade = nova;
     recalcular();
   }
-
+ 
   const bairrosPorMunicipio = {
     belem: [
       "Aeroporto","Agulha","Ananindeua","Batista Campos","Benguí","Boa Vista","Brasília","Cabanagem",
@@ -1017,7 +1017,7 @@
       "Roraima","Sideral","São Lázaro","Universo","45","47","312"
     ]
   };
-
+ 
   // ── CEP ──────────────────────────────────────
   function mascaraCep(el) {
     let v = el.value.replace(/\D/g, '');
@@ -1025,24 +1025,24 @@
     el.value = v;
     if (v.replace(/\D/g,'').length === 8) buscarCep();
   }
-
+ 
   async function buscarCep() {
     const cepEl    = document.getElementById('cep');
     const feedback = document.getElementById('cepFeedback');
     const spinner  = document.getElementById('cepSpinner');
     const cep      = cepEl.value.replace(/\D/g,'');
-
+ 
     if (cep.length !== 8) return;
-
+ 
     spinner.classList.add('show');
     feedback.textContent = 'Buscando endereço...';
     feedback.className   = 'cep-feedback cep-loading';
     cepEl.classList.remove('cep-ok','cep-erro');
-
+ 
     try {
       const res  = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const data = await res.json();
-
+ 
       if (data.erro) {
         cepEl.classList.add('cep-erro');
         feedback.textContent = '❌ CEP não encontrado. Preencha o endereço manualmente.';
@@ -1050,13 +1050,13 @@
         spinner.classList.remove('show');
         return;
       }
-
+ 
       // Verifica se é Belém ou Ananindeua
       const cidadeLower = (data.localidade || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
       const municipioVal = cidadeLower.includes('ananindeua') ? 'ananindeua'
                          : cidadeLower.includes('belem') || cidadeLower.includes('belém') ? 'belem'
                          : null;
-
+ 
       if (!municipioVal) {
         cepEl.classList.add('cep-erro');
         feedback.textContent = '⚠️ Este CEP está fora da nossa área de entrega (Belém e Ananindeua).';
@@ -1064,12 +1064,12 @@
         spinner.classList.remove('show');
         return;
       }
-
+ 
       // Preenche município
       const munSelect = document.getElementById('municipio');
       munSelect.value = municipioVal;
       atualizarBairros();
-
+ 
       // Tenta selecionar o bairro automaticamente
       if (data.bairro) {
         const bairroSelect  = document.getElementById('bairro');
@@ -1089,28 +1089,28 @@
           bairroSelect.appendChild(opt);
         }
       }
-
+ 
       // Preenche rua
       if (data.logradouro) {
         document.getElementById('rua').value = data.logradouro;
       }
-
+ 
       cepEl.classList.add('cep-ok');
       feedback.textContent = '✅ Endereço encontrado! Confira os dados abaixo.';
       feedback.className   = 'cep-feedback ok';
-
+ 
       // Foca no número
       setTimeout(() => document.getElementById('numero').focus(), 200);
-
+ 
     } catch(e) {
       feedback.textContent = '⚠️ Erro ao buscar CEP. Preencha manualmente.';
       feedback.className   = 'cep-feedback erro';
     }
-
+ 
     spinner.classList.remove('show');
   }
   // ─────────────────────────────────────────────
-
+ 
   function atualizarBairros() {
     const municipio = document.getElementById('municipio').value;
     const bairroSel = document.getElementById('bairro');
@@ -1123,19 +1123,19 @@
       });
     }
   }
-
+ 
   function aplicarCupom() {
     const input    = document.getElementById('cupomInput');
     const feedback = document.getElementById('cupomFeedback');
     const codigo   = input.value.trim().toUpperCase();
     const cupom    = CUPONS_VALIDOS[codigo];
-
+ 
     if (!codigo) {
       feedback.textContent = '⚠️ Digite um cupom primeiro.';
       feedback.className = 'cupom-feedback erro';
       return;
     }
-
+ 
     if (cupom) {
       freteGratis = true;
       input.classList.remove('cupom-erro');
@@ -1156,7 +1156,7 @@
       recalcular();
     }
   }
-
+ 
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('cupomInput').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') aplicarCupom();
@@ -1164,7 +1164,7 @@
     atualizarEstoque();
     recalcular();
   });
-
+ 
   document.getElementById('whatsapp').addEventListener('input', function(e) {
     let v = e.target.value.replace(/\D/g, '');
     if (v.length >= 11) v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
@@ -1172,7 +1172,7 @@
     else if (v.length >= 3) v = v.replace(/(\d{2})/, '($1) ');
     e.target.value = v;
   });
-
+ 
   function validarCampos() {
     const campos = ['nome','whatsapp','cep','municipio','bairro','rua','numero'];
     let ok = true;
@@ -1184,10 +1184,10 @@
     if (!ok) { mostrarToast('⚠️ Preencha todos os campos obrigatórios'); return false; }
     return true;
   }
-
+ 
   async function finalizarPedido() {
     if (!validarCampos()) return;
-
+ 
     const subtotal  = PRECO_KIT * quantidade;
     const frete     = freteGratis ? 0 : PRECO_FRETE;
     const total     = subtotal + frete;
@@ -1201,15 +1201,15 @@
     const cep       = document.getElementById('cep').value.trim();
     const cupom     = document.getElementById('cupomInput').value.trim().toUpperCase();
     const referencia = `${quantidade}x Kit Pins Brasil | ${nome} | ${whatsapp} | ${municipio}, ${bairro}, ${rua} ${numero}${compl ? ', '+compl : ''}`;
-
+ 
     document.getElementById('modalCarregando').classList.add('show');
     document.body.style.overflow = 'hidden';
-
+ 
     try {
       // Links do PagBank
       const LINK_COM_FRETE    = "https://pag.ae/81QBvFrS7";
       const LINK_SEM_FRETE    = "https://pag.ae/81QBtjeb7";
-
+ 
       // Salva pedido na planilha via JSONP
       const payload = {
         acao:       'planilha',
@@ -1226,7 +1226,7 @@
         total:      fmt(subtotal + frete),
         status:     'Aguardando pagamento'
       };
-
+ 
       // Dispara para planilha sem bloquear o redirect
       const cbName = 'planCb_' + Date.now();
       window[cbName] = function() { delete window[cbName]; };
@@ -1234,30 +1234,30 @@
       script.src = SHEETS_URL + '?callback=' + cbName + '&dados=' + encodeURIComponent(JSON.stringify(payload));
       document.head.appendChild(script);
       setTimeout(() => { try { script.remove(); } catch(e){} }, 10000);
-
+ 
       registrarVenda(quantidade);
       atualizarEstoque();
       document.getElementById('modalCarregando').classList.remove('show');
       document.body.style.overflow = '';
-
+ 
       // Seleciona o link correto pela quantidade e cupom
       const links  = freteGratis ? LINKS_SEM_FRETE : LINKS_COM_FRETE;
       const link   = links[quantidade];
-
+ 
       if (!link) {
         document.getElementById('erroMsg').textContent = 'Link de pagamento indisponível para essa quantidade. Entre em contato pelo Instagram @olheigosteibr.';
         document.getElementById('modalErro').classList.add('show');
         document.body.style.overflow = 'hidden';
         return;
       }
-
+ 
       // Modal de confirmação antes de redirecionar
       document.getElementById('confirmQtd').textContent   = quantidade;
       document.getElementById('confirmTotal').textContent = fmt(PRECO_KIT * quantidade + (freteGratis ? 0 : PRECO_FRETE));
       document.getElementById('confirmLink').href         = link;
       document.getElementById('modalConfirm').classList.add('show');
       document.body.style.overflow = 'hidden';
-
+ 
     } catch (err) {
       document.getElementById('modalCarregando').classList.remove('show');
       document.getElementById('erroMsg').textContent = 'Não foi possível processar o pedido. Tente novamente em instantes.';
@@ -1265,22 +1265,22 @@
       console.error(err);
     }
   }
-
+ 
   function fecharErro() {
     document.getElementById('modalErro').classList.remove('show');
     document.body.style.overflow = '';
   }
-
+ 
   function fecharConfirm() {
     document.getElementById('modalConfirm').classList.remove('show');
     document.body.style.overflow = '';
   }
-
+ 
   function fecharConfirm() {
     document.getElementById('modalConfirm').classList.remove('show');
     document.body.style.overflow = '';
   }
-
+ 
   function mostrarToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
