@@ -805,7 +805,11 @@
 <div class="footer">
   <strong>Olhei & Gostei Personalizados Criativos</strong><br>
   Produto artesanal não oficial • Não associado à CBF ou FIFA<br>
-  📸 <strong>@olheigosteibr</strong> no Instagram • Dúvidas? Nos chama lá!
+  📸 <strong>@olheigosteibr</strong> no Instagram • 
+  <a href="https://wa.me/5591993065359" target="_blank" style="color:var(--verde);font-weight:800;text-decoration:none;">
+    💬 (91) 99306-5359
+  </a><br>
+  Dúvidas? Nos chama no WhatsApp ou Instagram!
 </div>
 
 <!-- MODAL CARREGANDO -->
@@ -882,12 +886,9 @@
   // ============================================
   // CONFIGURAÇÃO — EDITE AQUI
   // ============================================
-  const PAGSEGURO_TOKEN = "6fa3df78-ca16-44cc-bb1c-f32ef431e5bb4bbb04b540cc8f2d795f70794d471d3726b8-90eb-4c3c-9dc9-cebb2a617e2e";
-  const PAGSEGURO_EMAIL = "haroldorebelojr@gmail.com";
-  const SHEETS_URL      = "https://script.google.com/macros/s/AKfycbxUDXt5pxIQ_MEHMffQiVx9O3C0lf5Q5bh3WV3qPWP4OOtrGrGOWcWlB-zv0WbWQd6o/exec";
-
-  const ESTOQUE_TOTAL = 100;    // Altere aqui para liberar mais unidades
-  const ESTOQUE_KEY   = "olheigosteibr_estoque_vendido"; // chave no localStorage
+  const SHEETS_URL    = "https://script.google.com/macros/s/AKfycbxUDXt5pxIQ_MEHMffQiVx9O3C0lf5Q5bh3WV3qPWP4OOtrGrGOWcWlB-zv0WbWQd6o/exec";
+  const ESTOQUE_TOTAL = 100;
+  const ESTOQUE_KEY   = "olheigosteibr_estoque_vendido";
 
   const CUPONS_VALIDOS = {
     "FRETEGRATIS": { desconto: 9.00, descricao: "Frete Grátis" },
@@ -895,9 +896,25 @@
     "BELEM":       { desconto: 9.00, descricao: "Frete Grátis" },
   };
 
+  // Links com frete (frete R$9 já incluído no valor do link)
+  const LINKS_COM_FRETE = {
+    1: "https://pag.ae/81QM6vD9s",  // R$ 38,90
+    2: "https://pag.ae/81QM8omsN",  // R$ 68,80
+    3: "https://pag.ae/81QMa3_uv",  // R$ 98,70
+    4: "https://pag.ae/81QMbsCEv"   // R$ 128,60
+  };
+
+  // Links sem frete (cupom — adicione os links quando criar no PagBank)
+  const LINKS_SEM_FRETE = {
+    1: "https://pag.ae/81QMmHa-r",  // R$ 29,90
+    2: "https://pag.ae/81QMnqDm6",  // R$ 59,80
+    3: "https://pag.ae/81QMo1rpr",  // R$ 89,70
+    4: "https://pag.ae/81QMoJcur"   // R$ 119,60
+  };
+
   const PRECO_KIT   = 29.90;
   const PRECO_FRETE = 9.00;
-  const QTD_MAX     = 5;
+  const QTD_MAX     = 4;
   // ============================================
 
   let quantidade  = 1;
@@ -1223,15 +1240,21 @@
       document.getElementById('modalCarregando').classList.remove('show');
       document.body.style.overflow = '';
 
-      // Monta link com valor dinâmico + modal de confirmação
-      const totalFinal = (PRECO_KIT * quantidade + frete).toFixed(2);
-      const linkBase   = freteGratis ? LINK_SEM_FRETE : LINK_COM_FRETE;
-      const linkFinal  = linkBase + '?amount=' + totalFinal;
+      // Seleciona o link correto pela quantidade e cupom
+      const links  = freteGratis ? LINKS_SEM_FRETE : LINKS_COM_FRETE;
+      const link   = links[quantidade];
 
-      // Mostra modal de confirmação antes de redirecionar
+      if (!link) {
+        document.getElementById('erroMsg').textContent = 'Link de pagamento indisponível para essa quantidade. Entre em contato pelo Instagram @olheigosteibr.';
+        document.getElementById('modalErro').classList.add('show');
+        document.body.style.overflow = 'hidden';
+        return;
+      }
+
+      // Modal de confirmação antes de redirecionar
       document.getElementById('confirmQtd').textContent   = quantidade;
-      document.getElementById('confirmTotal').textContent = fmt(parseFloat(totalFinal));
-      document.getElementById('confirmLink').href         = linkFinal;
+      document.getElementById('confirmTotal').textContent = fmt(PRECO_KIT * quantidade + (freteGratis ? 0 : PRECO_FRETE));
+      document.getElementById('confirmLink').href         = link;
       document.getElementById('modalConfirm').classList.add('show');
       document.body.style.overflow = 'hidden';
 
@@ -1245,6 +1268,11 @@
 
   function fecharErro() {
     document.getElementById('modalErro').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  function fecharConfirm() {
+    document.getElementById('modalConfirm').classList.remove('show');
     document.body.style.overflow = '';
   }
 
