@@ -5,6 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Olhei & Gostei Personalizados Criativos — Kit Pins Brasil para Crocs</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1482313868764638');
+fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1482313868764638&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
   :root {
     --verde: #009c3b;
@@ -354,9 +374,7 @@
   .qtd-maximo.show { display: block; }
  
   /* CUPOM */
-  .cupom-wrap {
-    margin-top: 16px;
-  }
+  .cupom-wrap { margin-top: 16px; }
   .cupom-label {
     font-size: 12px;
     font-weight: 800;
@@ -366,10 +384,7 @@
     margin-bottom: 6px;
     display: block;
   }
-  .cupom-row {
-    display: flex;
-    gap: 8px;
-  }
+  .cupom-row { display: flex; gap: 8px; }
   .cupom-row input {
     flex: 1;
     padding: 13px 16px;
@@ -407,7 +422,6 @@
     font-weight: 700;
     margin-top: 6px;
     min-height: 18px;
-    transition: all 0.2s;
   }
   .cupom-feedback.ok { color: var(--verde); }
   .cupom-feedback.erro { color: #e53935; }
@@ -415,7 +429,7 @@
   .resumo-linha.desconto span:last-child { color: var(--verde); }
   .resumo-linha.desconto { display: none; }
  
-  /* MODAL PIX */
+  /* MODAL */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -438,109 +452,7 @@
     from { transform: translateY(100%); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
   }
-  .modal-handle {
-    width: 40px;
-    height: 4px;
-    background: #ddd;
-    border-radius: 2px;
-    margin: 0 auto 20px;
-  }
-  .modal-titulo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--azul);
-    text-align: center;
-    margin-bottom: 4px;
-  }
-  .modal-sub {
-    text-align: center;
-    font-size: 13px;
-    color: #888;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  .pix-box {
-    background: var(--cinza-claro);
-    border: 2px dashed var(--verde);
-    border-radius: 14px;
-    padding: 16px;
-    text-align: center;
-    margin-bottom: 16px;
-  }
-  .pix-label {
-    font-size: 11px;
-    font-weight: 800;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-  .pix-chave {
-    font-size: 18px;
-    font-weight: 900;
-    color: var(--azul);
-    word-break: break-all;
-    margin-bottom: 10px;
-  }
-  .btn-copiar {
-    background: var(--amarelo);
-    color: var(--azul);
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
-    font-size: 14px;
-    cursor: pointer;
-    transition: transform 0.1s;
-    width: 100%;
-  }
-  .btn-copiar:active { transform: scale(0.97); }
- 
-  .pix-instrucoes {
-    background: #fff8e1;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 16px;
-  }
-  .pix-instrucoes p {
-    font-size: 13px;
-    color: #555;
-    font-weight: 600;
-    line-height: 1.6;
-  }
-  .pix-instrucoes strong { color: var(--azul); }
- 
-  .pix-total {
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: var(--verde);
-    margin-bottom: 16px;
-  }
-  .pix-total small {
-    display: block;
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px;
-    color: #aaa;
-    font-weight: 700;
-    margin-top: -4px;
-  }
- 
-  .btn-fechar {
-    width: 100%;
-    background: transparent;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    padding: 14px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    color: #888;
-    cursor: pointer;
-    margin-top: 8px;
-  }
- 
+
   /* FOOTER */
   .footer {
     text-align: center;
@@ -602,9 +514,7 @@
     background: linear-gradient(90deg, var(--verde), var(--amarelo));
     transition: width 0.6s ease;
   }
-  .estoque-barra-fill.critico {
-    background: linear-gradient(90deg, #ff6b6b, #e53935);
-  }
+  .estoque-barra-fill.critico { background: linear-gradient(90deg, #ff6b6b, #e53935); }
   .estoque-texto {
     font-size: 12px;
     font-weight: 800;
@@ -636,6 +546,11 @@
     font-weight: 600;
     color: #888;
     line-height: 1.5;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity:0.3; transform:scale(0.8); }
+    50% { opacity:1; transform:scale(1.2); }
   }
 </style>
 </head>
@@ -711,7 +626,8 @@
       <div class="qtd-maximo" id="qtdMaximo">⚠️ Máximo de 4 kits por pedido</div>
     </div>
   </div>
- 
+</div>
+
 <!-- FORMULÁRIO -->
 <div class="form-section">
   <div class="form-titulo"><span>📦</span> Dados para Entrega</div>
@@ -844,7 +760,6 @@
       <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--azul);">Confirme seu pedido</div>
       <p style="font-size:13px;color:#888;font-weight:600;margin-top:4px;">Você será redirecionado ao PagBank para pagar</p>
     </div>
- 
     <div style="background:var(--cinza-claro);border-radius:14px;padding:16px;margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;color:#444;margin-bottom:8px;">
         <span>Quantidade de kits</span>
@@ -855,14 +770,12 @@
         <span style="color:var(--verde)" id="confirmTotal">R$ 38,90</span>
       </div>
     </div>
- 
     <div style="background:#fff8e1;border-radius:12px;padding:12px 14px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start;">
       <span style="font-size:18px;">⚠️</span>
       <p style="font-size:12px;font-weight:700;color:#555;line-height:1.5;">
         No PagBank, <strong style="color:var(--azul)">confirme que o valor está correto</strong> antes de pagar. O link já está configurado com o valor exato do seu pedido.
       </p>
     </div>
- 
     <a id="confirmLink" href="#" style="display:block;width:100%;background:linear-gradient(135deg,var(--verde),#007a2f);color:var(--branco);border:none;border-radius:16px;padding:18px;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;text-align:center;text-decoration:none;box-shadow:0 6px 20px rgba(0,156,59,0.4);">
       ✅ IR PARA O PAGAMENTO
     </a>
@@ -875,109 +788,160 @@
 <!-- TOAST -->
 <div class="toast" id="toast">✅ Redirecionando...</div>
  
-<style>
-  @keyframes pulse {
-    0%,100% { opacity:0.3; transform:scale(0.8); }
-    50% { opacity:1; transform:scale(1.2); }
-  }
-</style>
- 
 <script>
   // ============================================
-  // CONFIGURAÇÃO — EDITE AQUI
+  // CONFIGURAÇÃO — EDITE AQUI SE NECESSÁRIO
   // ============================================
   const SHEETS_URL    = "https://script.google.com/macros/s/AKfycbxUDXt5pxIQ_MEHMffQiVx9O3C0lf5Q5bh3WV3qPWP4OOtrGrGOWcWlB-zv0WbWQd6o/exec";
   const ESTOQUE_TOTAL = 100;
-  const ESTOQUE_KEY   = "olheigosteibr_estoque_vendido";
- 
+
+  // ⚠️ CONTROLE DE ESTOQUE REAL via Sheets
+  // A planilha retorna o total de kits vendidos.
+  // Se a sua planilha não tiver essa função ainda,
+  // o estoque começa em 100 e nunca zera (fallback seguro).
+  const ESTOQUE_KEY   = "olheigosteibr_estoque_v2"; // nova chave — limpa o cache antigo
+
   const CUPONS_VALIDOS = {
     "FRETEGRATIS": { desconto: 9.00, descricao: "Frete Grátis" },
     "HEXA2026":    { desconto: 9.00, descricao: "Frete Grátis" },
     "BELEM":       { desconto: 9.00, descricao: "Frete Grátis" },
   };
- 
-  // Links com frete (frete R$9 já incluído no valor do link)
+
   const LINKS_COM_FRETE = {
-    1: "https://pag.ae/81QM6vD9s",  // R$ 38,90
-    2: "https://pag.ae/81QM8omsN",  // R$ 68,80
-    3: "https://pag.ae/81QMa3_uv",  // R$ 98,70
-    4: "https://pag.ae/81QMbsCEv"   // R$ 128,60
+    1: "https://pag.ae/81QM6vD9s",
+    2: "https://pag.ae/81QM8omsN",
+    3: "https://pag.ae/81QMa3_uv",
+    4: "https://pag.ae/81QMbsCEv"
   };
- 
-  // Links sem frete (cupom — adicione os links quando criar no PagBank)
   const LINKS_SEM_FRETE = {
-    1: "https://pag.ae/81QMmHa-r",  // R$ 29,90
-    2: "https://pag.ae/81QMnqDm6",  // R$ 59,80
-    3: "https://pag.ae/81QMo1rpr",  // R$ 89,70
-    4: "https://pag.ae/81QMoJcur"   // R$ 119,60
+    1: "https://pag.ae/81QMmHa-r",
+    2: "https://pag.ae/81QMnqDm6",
+    3: "https://pag.ae/81QMo1rpr",
+    4: "https://pag.ae/81QMoJcur"
   };
- 
+
   const PRECO_KIT   = 29.90;
   const PRECO_FRETE = 9.00;
   const QTD_MAX     = 4;
   // ============================================
- 
+
   let quantidade  = 1;
   let freteGratis = false;
- 
-  // ── ESTOQUE ──────────────────────────────────
-  function getVendidos() {
-    return parseInt(localStorage.getItem(ESTOQUE_KEY) || '0');
+  let estoqueRestanteAtual = ESTOQUE_TOTAL;
+
+  // ── PIXEL HELPERS ────────────────────────────
+  function pixelViewContent() {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'ViewContent', {
+        content_name: 'Kit 5 Pins Brasil Crocs',
+        content_category: 'Acessórios',
+        content_ids: ['kit-pins-brasil'],
+        content_type: 'product',
+        value: 29.90,
+        currency: 'BRL'
+      });
+    }
   }
-  function getRestante() {
-    return Math.max(0, ESTOQUE_TOTAL - getVendidos());
+  function pixelInitiateCheckout(qtd, total) {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Kit 5 Pins Brasil Crocs',
+        content_ids: ['kit-pins-brasil'],
+        num_items: qtd,
+        value: total,
+        currency: 'BRL'
+      });
+    }
   }
-  function registrarVenda(qtd) {
-    const atual = getVendidos();
-    localStorage.setItem(ESTOQUE_KEY, atual + qtd);
+  function pixelPurchase(qtd, total) {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Purchase', {
+        content_name: 'Kit 5 Pins Brasil Crocs',
+        content_ids: ['kit-pins-brasil'],
+        content_type: 'product',
+        num_items: qtd,
+        value: total,
+        currency: 'BRL'
+      });
+    }
   }
-  function atualizarEstoque() {
-    const restante  = getRestante();
+  // ─────────────────────────────────────────────
+
+  // ── ESTOQUE via Sheets ────────────────────────
+  // Tenta buscar quantidade vendida da planilha.
+  // A planilha precisa ter uma action=estoque no Apps Script.
+  // Se falhar, usa fallback local (nova chave = começa do zero).
+  async function carregarEstoqueRemoto() {
+    try {
+      const res  = await fetch(SHEETS_URL + '?acao=estoque');
+      const data = await res.json();
+      if (data && typeof data.vendidos === 'number') {
+        sessionStorage.setItem(ESTOQUE_KEY, data.vendidos);
+        return data.vendidos;
+      }
+    } catch(e) {}
+    // Fallback: usa sessionStorage (reseta a cada nova aba — mais justo)
+    return parseInt(sessionStorage.getItem(ESTOQUE_KEY) || '0');
+  }
+
+  function getVendidosLocal() {
+    return parseInt(sessionStorage.getItem(ESTOQUE_KEY) || '0');
+  }
+  function registrarVendaLocal(qtd) {
+    const atual = getVendidosLocal();
+    sessionStorage.setItem(ESTOQUE_KEY, atual + qtd);
+  }
+
+  function aplicarEstoque(vendidos) {
+    const restante  = Math.max(0, ESTOQUE_TOTAL - vendidos);
+    estoqueRestanteAtual = restante;
     const pct       = (restante / ESTOQUE_TOTAL) * 100;
-    const critico   = restante <= 20;
+    const critico   = restante > 0 && restante <= 20;
     const esgotado  = restante === 0;
- 
-    const barra   = document.getElementById('estoqueBarra');
-    const texto   = document.getElementById('estoqueTexto');
-    const numEl   = document.getElementById('estoqueRestante');
-    const wrap    = document.getElementById('estoqueWrap');
-    const esgWrap = document.getElementById('esgotadoWrap');
+
+    const barra    = document.getElementById('estoqueBarra');
+    const texto    = document.getElementById('estoqueTexto');
+    const numEl    = document.getElementById('estoqueRestante');
+    const wrap     = document.getElementById('estoqueWrap');
+    const esgWrap  = document.getElementById('esgotadoWrap');
     const prodCard = document.querySelector('.produto-card');
     const formSec  = document.querySelector('.form-section');
- 
+
     barra.style.width = pct + '%';
     barra.classList.toggle('critico', critico);
     texto.classList.toggle('critico', critico);
     numEl.textContent = restante;
- 
+
     if (esgotado) {
-      wrap.style.display      = 'none';
+      wrap.style.display = 'none';
       esgWrap.classList.add('show');
-      if (prodCard) prodCard.style.opacity  = '0.4';
-      if (formSec)  formSec.style.display   = 'none';
+      if (prodCard) prodCard.style.opacity = '0.4';
+      if (formSec)  formSec.style.display  = 'none';
     } else {
-      // Limita quantidade ao restante
       if (quantidade > restante) {
         quantidade = restante;
         document.getElementById('qtdNum').textContent = quantidade;
       }
-      // Desabilita + se restante < quantidade+1
       document.getElementById('btnMais').disabled = quantidade >= Math.min(QTD_MAX, restante);
     }
   }
+
+  async function atualizarEstoque() {
+    const vendidos = await carregarEstoqueRemoto();
+    aplicarEstoque(vendidos);
+  }
   // ─────────────────────────────────────────────
- 
+
   function fmt(v) { return 'R$ ' + v.toFixed(2).replace('.', ','); }
-  function fmtPS(v) { return v.toFixed(2); } // PagSeguro usa ponto decimal
- 
+
   function recalcular() {
     const subtotal = PRECO_KIT * quantidade;
     const frete    = freteGratis ? 0 : PRECO_FRETE;
     const total    = subtotal + frete;
- 
+
     document.getElementById('resumoQtdLabel').textContent = quantidade + '× Kit 5 Pins Brasil';
     document.getElementById('resumoProduto').textContent  = fmt(subtotal);
- 
+
     if (freteGratis) {
       document.getElementById('linhaFrete').innerHTML =
         '<span>Frete</span><span style="text-decoration:line-through;color:#aaa">R$ 9,00</span>';
@@ -985,23 +949,22 @@
       document.getElementById('linhaFrete').innerHTML =
         '<span>Frete</span><span>R$ 9,00</span>';
     }
- 
+
     document.getElementById('totalValor').textContent = fmt(total);
     document.getElementById('btnPagar').textContent   = '⚡ PAGAR AGORA — ' + fmt(total);
- 
     document.getElementById('btnMenos').disabled = quantidade <= 1;
-    document.getElementById('btnMais').disabled  = quantidade >= Math.min(QTD_MAX, getRestante());
+    document.getElementById('btnMais').disabled  = quantidade >= Math.min(QTD_MAX, estoqueRestanteAtual);
     document.getElementById('qtdNum').textContent = quantidade;
     document.getElementById('qtdMaximo').classList.toggle('show', quantidade >= QTD_MAX);
   }
- 
+
   function alterarQtd(delta) {
     const nova = quantidade + delta;
     if (nova < 1 || nova > QTD_MAX) return;
     quantidade = nova;
     recalcular();
   }
- 
+
   const bairrosPorMunicipio = {
     belem: [
       "Aeroporto","Agulha","Ananindeua","Batista Campos","Benguí","Boa Vista","Brasília","Cabanagem",
@@ -1017,32 +980,27 @@
       "Roraima","Sideral","São Lázaro","Universo","45","47","312"
     ]
   };
- 
-  // ── CEP ──────────────────────────────────────
+
   function mascaraCep(el) {
     let v = el.value.replace(/\D/g, '');
     if (v.length > 5) v = v.substring(0,5) + '-' + v.substring(5,8);
     el.value = v;
     if (v.replace(/\D/g,'').length === 8) buscarCep();
   }
- 
+
   async function buscarCep() {
     const cepEl    = document.getElementById('cep');
     const feedback = document.getElementById('cepFeedback');
     const spinner  = document.getElementById('cepSpinner');
     const cep      = cepEl.value.replace(/\D/g,'');
- 
     if (cep.length !== 8) return;
- 
     spinner.classList.add('show');
     feedback.textContent = 'Buscando endereço...';
     feedback.className   = 'cep-feedback cep-loading';
     cepEl.classList.remove('cep-ok','cep-erro');
- 
     try {
       const res  = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const data = await res.json();
- 
       if (data.erro) {
         cepEl.classList.add('cep-erro');
         feedback.textContent = '❌ CEP não encontrado. Preencha o endereço manualmente.';
@@ -1050,13 +1008,10 @@
         spinner.classList.remove('show');
         return;
       }
- 
-      // Verifica se é Belém ou Ananindeua
       const cidadeLower = (data.localidade || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
       const municipioVal = cidadeLower.includes('ananindeua') ? 'ananindeua'
                          : cidadeLower.includes('belem') || cidadeLower.includes('belém') ? 'belem'
                          : null;
- 
       if (!municipioVal) {
         cepEl.classList.add('cep-erro');
         feedback.textContent = '⚠️ Este CEP está fora da nossa área de entrega (Belém e Ananindeua).';
@@ -1064,16 +1019,12 @@
         spinner.classList.remove('show');
         return;
       }
- 
-      // Preenche município
       const munSelect = document.getElementById('municipio');
       munSelect.value = municipioVal;
       atualizarBairros();
- 
-      // Tenta selecionar o bairro automaticamente
       if (data.bairro) {
-        const bairroSelect  = document.getElementById('bairro');
-        const bairroNorm    = data.bairro.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+        const bairroSelect = document.getElementById('bairro');
+        const bairroNorm   = data.bairro.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
         let encontrou = false;
         Array.from(bairroSelect.options).forEach(opt => {
           const optNorm = opt.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
@@ -1083,34 +1034,23 @@
           }
         });
         if (!encontrou && data.bairro) {
-          // Adiciona o bairro do CEP caso não esteja na lista
           const opt = document.createElement('option');
           opt.value = data.bairro; opt.textContent = data.bairro; opt.selected = true;
           bairroSelect.appendChild(opt);
         }
       }
- 
-      // Preenche rua
-      if (data.logradouro) {
-        document.getElementById('rua').value = data.logradouro;
-      }
- 
+      if (data.logradouro) document.getElementById('rua').value = data.logradouro;
       cepEl.classList.add('cep-ok');
       feedback.textContent = '✅ Endereço encontrado! Confira os dados abaixo.';
       feedback.className   = 'cep-feedback ok';
- 
-      // Foca no número
       setTimeout(() => document.getElementById('numero').focus(), 200);
- 
     } catch(e) {
       feedback.textContent = '⚠️ Erro ao buscar CEP. Preencha manualmente.';
       feedback.className   = 'cep-feedback erro';
     }
- 
     spinner.classList.remove('show');
   }
-  // ─────────────────────────────────────────────
- 
+
   function atualizarBairros() {
     const municipio = document.getElementById('municipio').value;
     const bairroSel = document.getElementById('bairro');
@@ -1123,19 +1063,17 @@
       });
     }
   }
- 
+
   function aplicarCupom() {
     const input    = document.getElementById('cupomInput');
     const feedback = document.getElementById('cupomFeedback');
     const codigo   = input.value.trim().toUpperCase();
     const cupom    = CUPONS_VALIDOS[codigo];
- 
     if (!codigo) {
       feedback.textContent = '⚠️ Digite um cupom primeiro.';
       feedback.className = 'cupom-feedback erro';
       return;
     }
- 
     if (cupom) {
       freteGratis = true;
       input.classList.remove('cupom-erro');
@@ -1156,38 +1094,40 @@
       recalcular();
     }
   }
- 
-  document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById('cupomInput').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') aplicarCupom();
     });
-    atualizarEstoque();
+    document.getElementById('whatsapp').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length >= 11) v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+      else if (v.length >= 7) v = v.replace(/(\d{2})(\d{4})/, '($1) $2');
+      else if (v.length >= 3) v = v.replace(/(\d{2})/, '($1) ');
+      e.target.value = v;
+    });
+
+    // Carrega estoque e dispara ViewContent
+    await atualizarEstoque();
     recalcular();
+    pixelViewContent();
   });
- 
-  document.getElementById('whatsapp').addEventListener('input', function(e) {
-    let v = e.target.value.replace(/\D/g, '');
-    if (v.length >= 11) v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-    else if (v.length >= 7) v = v.replace(/(\d{2})(\d{4})/, '($1) $2');
-    else if (v.length >= 3) v = v.replace(/(\d{2})/, '($1) ');
-    e.target.value = v;
-  });
- 
+
   function validarCampos() {
     const campos = ['nome','whatsapp','cep','municipio','bairro','rua','numero'];
     let ok = true;
     campos.forEach(id => {
       const el = document.getElementById(id);
-      if (!el.value.trim()) { el.classList.add('error'); ok = false; }
-      else el.classList.remove('error');
+      if (!el.value.trim()) { el.style.borderColor = '#e53935'; ok = false; }
+      else el.style.borderColor = '';
     });
     if (!ok) { mostrarToast('⚠️ Preencha todos os campos obrigatórios'); return false; }
     return true;
   }
- 
+
   async function finalizarPedido() {
     if (!validarCampos()) return;
- 
+
     const subtotal  = PRECO_KIT * quantidade;
     const frete     = freteGratis ? 0 : PRECO_FRETE;
     const total     = subtotal + frete;
@@ -1200,25 +1140,18 @@
     const compl     = document.getElementById('complemento').value.trim();
     const cep       = document.getElementById('cep').value.trim();
     const cupom     = document.getElementById('cupomInput').value.trim().toUpperCase();
-    const referencia = `${quantidade}x Kit Pins Brasil | ${nome} | ${whatsapp} | ${municipio}, ${bairro}, ${rua} ${numero}${compl ? ', '+compl : ''}`;
- 
+
+    // Dispara InitiateCheckout no Pixel
+    pixelInitiateCheckout(quantidade, total);
+
     document.getElementById('modalCarregando').classList.add('show');
     document.body.style.overflow = 'hidden';
- 
+
     try {
-      // Links do PagBank
-      const LINK_COM_FRETE    = "https://pag.ae/81QBvFrS7";
-      const LINK_SEM_FRETE    = "https://pag.ae/81QBtjeb7";
- 
-      // Salva pedido na planilha via JSONP
       const payload = {
         acao:       'planilha',
         data:       new Date().toLocaleString('pt-BR', {timeZone:'America/Belem'}),
-        nome,
-        whatsapp,
-        cep,
-        municipio,
-        bairro,
+        nome, whatsapp, cep, municipio, bairro,
         rua:        `${rua}, ${numero}${compl ? ', '+compl : ''}`,
         quantidade,
         cupom:      cupom || '—',
@@ -1226,38 +1159,42 @@
         total:      fmt(subtotal + frete),
         status:     'Aguardando pagamento'
       };
- 
-      // Dispara para planilha sem bloquear o redirect
+
       const cbName = 'planCb_' + Date.now();
       window[cbName] = function() { delete window[cbName]; };
       const script = document.createElement('script');
       script.src = SHEETS_URL + '?callback=' + cbName + '&dados=' + encodeURIComponent(JSON.stringify(payload));
       document.head.appendChild(script);
       setTimeout(() => { try { script.remove(); } catch(e){} }, 10000);
- 
-      registrarVenda(quantidade);
-      atualizarEstoque();
+
+      registrarVendaLocal(quantidade);
+
       document.getElementById('modalCarregando').classList.remove('show');
       document.body.style.overflow = '';
- 
-      // Seleciona o link correto pela quantidade e cupom
-      const links  = freteGratis ? LINKS_SEM_FRETE : LINKS_COM_FRETE;
-      const link   = links[quantidade];
- 
+
+      const links = freteGratis ? LINKS_SEM_FRETE : LINKS_COM_FRETE;
+      const link  = links[quantidade];
+
       if (!link) {
         document.getElementById('erroMsg').textContent = 'Link de pagamento indisponível para essa quantidade. Entre em contato pelo Instagram @olheigosteibr.';
         document.getElementById('modalErro').classList.add('show');
         document.body.style.overflow = 'hidden';
         return;
       }
- 
-      // Modal de confirmação antes de redirecionar
+
       document.getElementById('confirmQtd').textContent   = quantidade;
-      document.getElementById('confirmTotal').textContent = fmt(PRECO_KIT * quantidade + (freteGratis ? 0 : PRECO_FRETE));
-      document.getElementById('confirmLink').href         = link;
+      document.getElementById('confirmTotal').textContent = fmt(total);
+
+      // Ao clicar em IR PARA O PAGAMENTO → dispara Purchase
+      const confirmLink = document.getElementById('confirmLink');
+      confirmLink.href  = link;
+      confirmLink.onclick = function() {
+        pixelPurchase(quantidade, total);
+      };
+
       document.getElementById('modalConfirm').classList.add('show');
       document.body.style.overflow = 'hidden';
- 
+
     } catch (err) {
       document.getElementById('modalCarregando').classList.remove('show');
       document.getElementById('erroMsg').textContent = 'Não foi possível processar o pedido. Tente novamente em instantes.';
@@ -1265,22 +1202,15 @@
       console.error(err);
     }
   }
- 
+
   function fecharErro() {
     document.getElementById('modalErro').classList.remove('show');
     document.body.style.overflow = '';
   }
- 
   function fecharConfirm() {
     document.getElementById('modalConfirm').classList.remove('show');
     document.body.style.overflow = '';
   }
- 
-  function fecharConfirm() {
-    document.getElementById('modalConfirm').classList.remove('show');
-    document.body.style.overflow = '';
-  }
- 
   function mostrarToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
